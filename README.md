@@ -25,7 +25,7 @@ apresentação da equipe e descrição de funcionalidades.
 - [ ] Documentar as chamadas da API.
 
 ### PLUS
-- [ ] Matricular e remover alunos dos curso
+- [ ] Cadastrar e remover aulas dos curso
 - [ ] Cadastrar novos posts para os autores
 
 # Getting Started with Create React App
