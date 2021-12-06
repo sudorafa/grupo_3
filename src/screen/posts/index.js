@@ -1,51 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import Container from '@material-ui/core/Container';
 import { useStyles } from './styles';
-import image from '../../assets/image.jpg';
 import Modal from '@material-ui/core/Modal';
-
-
-const itemData = [
-     {
-       img: image,
-       title: 'Image',
-       author: 'author',
-       description: 'desc',
-     },
-     {
-      img: image,
-      title: 'Image',
-      author: 'author',
-      description: 'desc',
-     },
-
-     {
-      img: image,
-      title: 'Image',
-      author: 'author',
-      description: 'desc',
-     },
-
-     {
-      img: image,
-      title: 'Image',
-      author: 'author',
-      description: 'desc',
-     },
-
-     {
-      img: image,
-      title: 'Image',
-      author: 'author',
-      description: 'desc',
-     },
-   ];
+import { get } from '../../services/api';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export default function Posts() {
   const classes = useStyles();
@@ -60,11 +23,26 @@ export default function Posts() {
     setOpen(false);
   };
 
+  const [itemData, setItemData] = useState([])
+
+  useEffect(() => {
+    async function getPosts() {
+      try {
+        const data = await get('g3-pipline-hsm?type=posts');
+        setItemData(data?.posts);
+      } catch (error) {
+        alert("Ocorreu um erro ao buscar os todos");
+      }
+    }
+    getPosts();
+  }, []);
+
   const body = (
     <div className={classes.paper}>
+      <img src={itemModal?.thumb_img} alt={itemModal?.title} />
       <h2 id="simple-modal-title">{itemModal?.title}</h2>
       <p id="simple-modal-description">
-        {itemModal?.description}
+        {itemModal?.content}
       </p>
     </div>
   );
@@ -72,35 +50,41 @@ export default function Posts() {
   return (
     
     <Container maxWidth="lg" className={classes.container}>
+      { itemData?.length ?
       <ImageList rowHeight={180} className={classes.imageList}>
         <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">December</ListSubheader>
         </ImageListItem>
+        
         {itemData.map((item) => (
-          <ImageListItem key={item.img}>
-            <img src={item.img} alt={item.title} />
+          <ImageListItem key={item.id}>
+            <img src={item.cover_img} alt={item.title} />
             <ImageListItemBar
               title={item.title}
-              subtitle={<span>by: {item.author}</span>}
+              subtitle={<span>{item.description}</span>}
               actionIcon={
-                <IconButton aria-label={`info about ${item.title}`} className={classes.icon} onClick={() => { handleOpen(); setItemModal(item) }}>
-                  <InfoIcon />
+                <IconButton 
+                  aria-label={`info about ${item.title}`} 
+                  className={classes.icon} 
+                  onClick={() => { handleOpen(); setItemModal(item) }}>
+                <InfoIcon />
                 </IconButton>
-                
               }
-              
             />
           </ImageListItem>
-        ))}
+        )) }
       </ImageList>
-      <Modal 
-                className={classes.modal}
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description">
-                {body}
-              </Modal>
+      : <div className={classes.modal}>
+          <CircularProgress /> 
+        </div>
+      }
+        <Modal 
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description">
+          {body}
+        </Modal>
     </Container>
   );
 }

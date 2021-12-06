@@ -1,7 +1,12 @@
 import axios from "axios";
 
+const headers = {
+  apikey: 'DDuHO8yqVyyUx4J1nQpNUHAFK7pUJRw3'
+}
+
 const api = axios.create({
-  baseURL: "DIGIBEE"
+  baseURL: "https://test.godigibee.io/pipeline/gama/v1",
+  headers: headers
 });
 
 export const get = async url => {
