@@ -31,7 +31,7 @@ export default function Posts() {
         const data = await get('g3-pipline-hsm?type=posts');
         setItemData(data?.posts);
       } catch (error) {
-        alert("Ocorreu um erro ao buscar os todos");
+        alert("Ocorreu um erro ao buscar os posts");
       }
     }
     getPosts();
@@ -54,7 +54,6 @@ export default function Posts() {
       <ImageList rowHeight={180} className={classes.imageList}>
         <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
         </ImageListItem>
-        
         {itemData.map((item) => (
           <ImageListItem key={item.id}>
             <img src={item.cover_img} alt={item.title} />

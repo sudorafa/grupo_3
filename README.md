@@ -9,24 +9,33 @@
 
 ## Plataforma de conteúdo sobre Educação Financeira
 
-- Este projeto 
+- Esse projeto visou suprir as necessidades apresentadas pela empresa Digibee, trazendo uma interface gráfica dinâmica, um visual agradável e funcional.
 
-## TODO
+## Todo:
 
 ### ENTREGAS MÍNIMAS
 - [x] Repositório no Github com README.md de descrição do projeto,
 apresentação da equipe e descrição de funcionalidades.
 - [x] Apresentar as páginas responsivas com HTML semântico.
-- [ ] Utilizar uma API key nas chamadas REST.
-- [ ] Consultar Cursos na API e exibir no front-end.
-- [ ] Consultar POSTS de Blog na API e exibir no front-end.
-- [ ] Validação de Dados de Entrada.
-- [ ] Tratamento de Erros no Processo da Chamada.
-- [ ] Documentar as chamadas da API.
+- [x] Utilizar uma API key nas chamadas REST.
+- [x] Consultar Cursos na API e exibir no front-end.
+- [x] Consultar POSTS de Blog na API e exibir no front-end.
+- [x] Validação de Dados de Entrada.
+- [x] Tratamento de Erros no Processo da Chamada.
+- [x] Documentar as chamadas da API.
 
 ### PLUS
 - [ ] Cadastrar e remover aulas dos curso
 - [ ] Cadastrar novos posts para os autores
+
+
+## Documentação API
+
+A nossa API tem como parâmetros de consulta os seguintes termos:
+?type=cursos
+?type=posts
+?type=aulas;id=1
+
 
 # Getting Started with Create React App
 

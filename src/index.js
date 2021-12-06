@@ -70,7 +70,7 @@ export default function App() {
         { menu === menus.ABOUT
           && (
           <Container maxWidth="lg" className={classes.container}>
-            Essa aplicação ...
+              Esse projeto visou suprir as necessidades apresentadas pela empresa Digibee, trazendo uma interface gráfica dinâmica, um visual agradável e funcional.
           </Container>
           )}
 
