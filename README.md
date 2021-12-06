@@ -11,7 +11,23 @@
 
 - Este projeto 
 
-#
+## TODO
+
+### ENTREGAS MÍNIMAS
+- [x] Repositório no Github com README.md de descrição do projeto,
+apresentação da equipe e descrição de funcionalidades.
+- [x] Apresentar as páginas responsivas com HTML semântico.
+- [ ] Utilizar uma API key nas chamadas REST.
+- [ ] Consultar Cursos na API e exibir no front-end.
+- [ ] Consultar POSTS de Blog na API e exibir no front-end.
+- [ ] Validação de Dados de Entrada.
+- [ ] Tratamento de Erros no Processo da Chamada.
+- [ ] Documentar as chamadas da API.
+
+### PLUS
+- [ ] Matricular e remover alunos dos curso
+- [ ] Cadastrar novos posts para os autores
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
