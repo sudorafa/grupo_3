@@ -1,3 +1,17 @@
+# HACKATHON Gama 👊 Academy - Grupo 3
+
+## Time
+
+- Gilvan Santos de Oliveira
+- Guilherme Rabelo 
+- Rafael Eduardo Lima
+- Sarah Godoy
+
+## Plataforma de conteúdo sobre Educação Financeira
+
+- Este projeto 
+
+#
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
